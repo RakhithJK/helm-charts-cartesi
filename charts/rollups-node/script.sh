@@ -3,35 +3,39 @@
 
 # Define file names
 TOML_FILE="Config.toml"
-JSON_FILE="Config.json"
 TEMPLATE_VALUES_FILE="values.yaml.tpl"
 VALUES_FILE="values.yaml"
 
 # Download the Config.toml file from the rollups-node repository
 wget https://raw.githubusercontent.com/cartesi/rollups-node/main/internal/config/generate/Config.toml
 
-# Convert TOML to JSON using yq
-yq -oj '.' "$TOML_FILE" > "$JSON_FILE"
-
-# Use the template values file as a starting point
+# Use the template TOML values file as a starting point
+echo "Using $TEMPLATE_VALUES_FILE as the template values file..."
 cat "$TEMPLATE_VALUES_FILE" > "$VALUES_FILE"
 
-# Loop through the keys in the JSON file
-for ELEMENT in $(jq -r 'keys[]' "$JSON_FILE"); do
-    echo "Processing $ELEMENT..."
+# Process TOML file using yq and transform to YAML format
+echo "Processing $TOML_FILE using yq and transforming it to YAML format..."
+yq -ptoml -oy '.[] | to_entries' "$TOML_FILE" |
 
-    # Append the key and its values to the existing YAML file
-    echo "    $ELEMENT:" >> "$VALUES_FILE"
-    jq -r --arg ELEMENT "$ELEMENT" \
-        '.[$ELEMENT] | to_entries | map("  # -- \(.value.description | gsub("\n"; "\n  # "))\n  \(.key): \(.value.default // "")") | join("\n")' "$JSON_FILE" | \
-        sed 's/^/    /' | sed "1s/^$/$ELEMENT:\n/" >> "$VALUES_FILE"
+# Process each entry, extract description and default value, format as YAML
+yq eval-all '.[] | {"description": .value.description, .key: .value.default}' |
 
-    # Add a newline if it's not the last element
-    [ "$ELEMENT" != "$(jq -r 'keys[-1]' "$JSON_FILE")" ] && echo >> "$VALUES_FILE"
-done
+# Remove "description:" key
+sed 's/description: //g' | sed '/^ *|-/d' |
 
-# Provide feedback to the user
-echo "Conversion completed. Output written to $VALUES_FILE"
+# Make comments for each key value pairs
+awk '/^[[:space:]]*[^#[:space:]]*:/ {print $0; next} {print "#", $0}' |
+
+# Add "--" to the first comment line for auto Readme
+awk '/^ *#/ {if (!comment) sub("#", "# --"); comment=1} /^#/{print; next} {comment=0; print}' |
+
+# Remove "null" values
+sed 's/: null$/: ""/g' |
+
+# Add 4 spaces of indentation to each line and finally add the values to value.yaml
+sed 's/^/    /' >> "$VALUES_FILE" |
+
+echo "Script completed. Result saved to $VALUES_FILE."
 
 # Clean up temporary files
-rm -rf "$TOML_FILE" "$JSON_FILE"
+rm -rf "$TOML_FILE"
