@@ -64,96 +64,96 @@ spec:
               value: {{ include "dapp.chainID" . | quote }}
             {{- end }}
             - name: CARTESI_LOG_LEVEL
-              value: {{ .Values.validator.config.logging.CARTESI_LOG_LEVEL }}
+              value: {{ .Values.validator.config.CARTESI_LOG_LEVEL }}
             - name: CARTESI_LOG_TIMESTAMP
-              value: {{ .Values.validator.config.logging.CARTESI_LOG_TIMESTAMP }}
-            {{- if .Values.validator.config.contracts.CARTESI_CONTRACTS_DAPP_ADDRESS }}
+              value: {{ .Values.validator.config.CARTESI_LOG_TIMESTAMP }}
+            {{- if .Values.validator.config.CARTESI_CONTRACTS_DAPP_ADDRESS }}
             - name: CARTESI_CONTRACTS_DAPP_ADDRESS
-              value: {{ .Values.validator.config.contracts.CARTESI_CONTRACTS_DAPP_ADDRESS | quote }}
+              value: {{ .Values.validator.config.CARTESI_CONTRACTS_DAPP_ADDRESS | quote }}
             {{- end }}
-            {{- if .Values.validator.config.contracts.CARTESI_CONTRACTS_DAPP_DEPLOYMENT_BLOCK_NUMBER }}
+            {{- if .Values.validator.config.CARTESI_CONTRACTS_DAPP_DEPLOYMENT_BLOCK_NUMBER }}
             - name: CARTESI_CONTRACTS_DAPP_DEPLOYMENT_BLOCK_NUMBER
-              value: {{ .Values.validator.config.contracts.CARTESI_CONTRACTS_DAPP_DEPLOYMENT_BLOCK_NUMBER | quote }}
+              value: {{ .Values.validator.config.CARTESI_CONTRACTS_DAPP_DEPLOYMENT_BLOCK_NUMBER | quote }}
             {{- end }}
-            {{- if .Values.validator.config.contracts.CARTESI_CONTRACTS_HISTORY_ADDRESS }}
+            {{- if .Values.validator.config.CARTESI_CONTRACTS_HISTORY_ADDRESS }}
             - name: CARTESI_CONTRACTS_HISTORY_ADDRESS
-              value: {{ .Values.validator.config.contracts.CARTESI_CONTRACTS_HISTORY_ADDRESS | quote }}
+              value: {{ .Values.validator.config.CARTESI_CONTRACTS_HISTORY_ADDRESS | quote }}
             {{- end }}
-            {{- if .Values.validator.config.contracts.CARTESI_CONTRACTS_AUTHORITY_ADDRESS }}
+            {{- if .Values.validator.config.CARTESI_CONTRACTS_AUTHORITY_ADDRESS }}
             - name: CARTESI_CONTRACTS_AUTHORITY_ADDRESS
-              value: {{ .Values.validator.config.contracts.CARTESI_CONTRACTS_AUTHORITY_ADDRESS | quote }}
+              value: {{ .Values.validator.config.CARTESI_CONTRACTS_AUTHORITY_ADDRESS | quote }}
             {{- end }}
-            {{- if .Values.validator.config.contracts.CARTESI_CONTRACTS_INPUT_BOX_ADDRESS }}
+            {{- if .Values.validator.config.CARTESI_CONTRACTS_INPUT_BOX_ADDRESS }}
             - name: CARTESI_CONTRACTS_INPUT_BOX_ADDRESS
-              value: {{ .Values.validator.config.contracts.CARTESI_CONTRACTS_INPUT_BOX_ADDRESS | quote }}
+              value: {{ .Values.validator.config.CARTESI_CONTRACTS_INPUT_BOX_ADDRESS | quote }}
             {{- end }}
-            {{- if .Values.validator.config.experimental.CARTESI_EXPERIMENTAL_SUNODO_VALIDATOR_ENABLED }}
+            {{- if .Values.validator.config.CARTESI_EXPERIMENTAL_SUNODO_VALIDATOR_ENABLED }}
             - name: CARTESI_EXPERIMENTAL_SUNODO_VALIDATOR_ENABLED
-              value: {{ .Values.validator.config.experimental.CARTESI_EXPERIMENTAL_SUNODO_VALIDATOR_ENABLED | quote }}
+              value: {{ .Values.validator.config.CARTESI_EXPERIMENTAL_SUNODO_VALIDATOR_ENABLED | quote }}
             {{- end }}
-            {{- if .Values.validator.config.experimental.CARTESI_EXPERIMENTAL_SUNODO_VALIDATOR_REDIS_ENDPOINT }}
+            {{- if .Values.validator.config.CARTESI_EXPERIMENTAL_SUNODO_VALIDATOR_REDIS_ENDPOINT }}
             - name: CARTESI_CONTRACTS_CARTESI_EXPERIMENTAL_SUNODO_VALIDATOR_REDIS_ENDPOINTDAPP_ADDRESS
-              value: {{ .Values.validator.config.experimental.CARTESI_EXPERIMENTAL_SUNODO_VALIDATOR_REDIS_ENDPOINT | quote }}
+              value: {{ .Values.validator.config.CARTESI_EXPERIMENTAL_SUNODO_VALIDATOR_REDIS_ENDPOINT | quote }}
             {{- end }}
-            {{- if .Values.validator.config.features.CARTESI_FEATURE_HOST_MODE }}
+            {{- if .Values.validator.config.CARTESI_FEATURE_HOST_MODE }}
             - name: CARTESI_FEATURE_HOST_MODE
-              value: {{ .Values.validator.config.features.CARTESI_FEATURE_HOST_MODE | quote }}
+              value: {{ .Values.validator.config.CARTESI_FEATURE_HOST_MODE | quote }}
             {{- end }}
-            {{- if .Values.validator.config.features.CARTESI_FEATURE_READER_MODE }}
+            {{- if .Values.validator.config.CARTESI_FEATURE_READER_MODE }}
             - name: CARTESI_FEATURE_READER_MODE
-              value: {{ .Values.validator.config.features.CARTESI_FEATURE_READER_MODE | quote }}
+              value: {{ .Values.validator.config.CARTESI_FEATURE_READER_MODE | quote }}
             {{- end }}
-            {{- if .Values.validator.config.features.CARTESI_FEATURE_DISABLE_MACHINE_HASH_CHECK }}
+            {{- if .Values.validator.config.CARTESI_FEATURE_DISABLE_MACHINE_HASH_CHECK }}
             - name: CARTESI_FEATURE_DISABLE_MACHINE_HASH_CHECK
-              value: {{ .Values.validator.config.features.CARTESI_FEATURE_DISABLE_MACHINE_HASH_CHECK | quote }}
+              value: {{ .Values.validator.config.CARTESI_FEATURE_DISABLE_MACHINE_HASH_CHECK | quote }}
             {{- end }}
-            {{- if .Values.validator.config.http.CARTESI_HTTP_ADDRESS }}
+            {{- if .Values.validator.config.CARTESI_HTTP_ADDRESS }}
             - name: CARTESI_HTTP_ADDRESS
-              value: {{ .Values.validator.config.http.CARTESI_HTTP_ADDRESS | quote }}
+              value: {{ .Values.validator.config.CARTESI_HTTP_ADDRESS | quote }}
             {{- end }}
-            {{- if .Values.validator.config.http.CARTESI_HTTP_PORT }}
+            {{- if .Values.validator.config.CARTESI_HTTP_PORT }}
             - name: CARTESI_HTTP_PORT
-              value: {{ .Values.validator.config.http.CARTESI_HTTP_PORT | quote }}
+              value: {{ .Values.validator.config.CARTESI_HTTP_PORT | quote }}
             {{- end }}
-            {{- if .Values.validator.config.postgres.CARTESI_POSTGRES_ENDPOINT }}
+            {{- if .Values.validator.config.CARTESI_POSTGRES_ENDPOINT }}
             - name: CARTESI_POSTGRES_ENDPOINT
-              value: {{ .Values.validator.config.postgres.CARTESI_POSTGRES_ENDPOINT | quote }}
+              value: {{ .Values.validator.config.CARTESI_POSTGRES_ENDPOINT | quote }}
             {{- end }}
             - name: CARTESI_EPOCH_DURATION
-              value: {{ .Values.validator.config.rollups.CARTESI_EPOCH_DURATION | quote }}
-            {{- if .Values.validator.config.snapshot.CARTESI_SNAPSHOT_DIR }}
+              value: {{ .Values.validator.config.CARTESI_EPOCH_DURATION | quote }}
+            {{- if .Values.validator.config.CARTESI_SNAPSHOT_DIR }}
             - name: CARTESI_SNAPSHOT_DIR
-              value: {{ .Values.validator.config.snapshot.CARTESI_SNAPSHOT_DIR | quote }}
+              value: {{ .Values.validator.config.CARTESI_SNAPSHOT_DIR | quote }}
             {{- end }}
-            {{- if .Values.validator.config.blockchain.CARTESI_BLOCKCHAIN_HTTP_ENDPOINT }}
+            {{- if .Values.validator.config.CARTESI_BLOCKCHAIN_HTTP_ENDPOINT }}
             - name: CARTESI_BLOCKCHAIN_HTTP_ENDPOINT
-              value: {{ .Values.validator.config.blockchain.CARTESI_BLOCKCHAIN_HTTP_ENDPOINT | quote }}
+              value: {{ .Values.validator.config.CARTESI_BLOCKCHAIN_HTTP_ENDPOINT | quote }}
             {{- end }}
-            {{- if .Values.validator.config.blockchain.CARTESI_BLOCKCHAIN_WS_ENDPOINT }}
+            {{- if .Values.validator.config.CARTESI_BLOCKCHAIN_WS_ENDPOINT }}
             - name: CARTESI_BLOCKCHAIN_WS_ENDPOINT
-              value: {{ .Values.validator.config.blockchain.CARTESI_BLOCKCHAIN_WS_ENDPOINT | quote }}
+              value: {{ .Values.validator.config.CARTESI_BLOCKCHAIN_WS_ENDPOINT | quote }}
             {{- end }}
             - name: CARTESI_BLOCKCHAIN_IS_LEGACY
-              value: {{ .Values.validator.config.blockchain.CARTESI_BLOCKCHAIN_IS_LEGACY | quote }}
+              value: {{ .Values.validator.config.CARTESI_BLOCKCHAIN_IS_LEGACY | quote }}
             - name: CARTESI_BLOCKCHAIN_FINALITY_OFFSET
-              value: {{ .Values.validator.config.blockchain.CARTESI_BLOCKCHAIN_FINALITY_OFFSET | quote }}
+              value: {{ .Values.validator.config.CARTESI_BLOCKCHAIN_FINALITY_OFFSET | quote }}
             - name: CARTESI_BLOCKCHAIN_BLOCK_TIMEOUT
-              value: {{ .Values.validator.config.blockchain.CARTESI_BLOCKCHAIN_BLOCK_TIMEOUT | quote }}
-            {{- if .Values.validator.config.blockchain.CARTESI_CONTRACTS_INPUT_BOX_DEPLOYMENT_BLOCK_NUMBER }}
+              value: {{ .Values.validator.config.CARTESI_BLOCKCHAIN_BLOCK_TIMEOUT | quote }}
+            {{- if .Values.validator.config.CARTESI_CONTRACTS_INPUT_BOX_DEPLOYMENT_BLOCK_NUMBER }}
             - name: CARTESI_CONTRACTS_INPUT_BOX_DEPLOYMENT_BLOCK_NUMBER
-              value: {{ .Values.validator.config.blockchain.CARTESI_CONTRACTS_INPUT_BOX_DEPLOYMENT_BLOCK_NUMBER | quote }}
+              value: {{ .Values.validator.config.CARTESI_CONTRACTS_INPUT_BOX_DEPLOYMENT_BLOCK_NUMBER | quote }}
             {{- end }}
-            {{- if (or .Values.validator.config.auth.CARTESI_AUTH_MNEMONIC .Values.validator.config.auth.CARTESI_AUTH_MNEMONIC_FILE) }}
+            {{- if (or .Values.validator.config.CARTESI_AUTH_MNEMONIC .Values.validator.config.CARTESI_AUTH_MNEMONIC_FILE) }}
             - name: CARTESI_AUTH_MNEMONIC_FILE
               value: "/var/run/secrets/mnemonic/MNEMONIC"
             - name: CARTESI_AUTH_MNEMONIC_ACCOUNT_INDEX
-              value: {{ .Values.validator.config.auth.CARTESI_AUTH_MNEMONIC_ACCOUNT_INDEX }}
+              value: {{ .Values.validator.config.CARTESI_AUTH_MNEMONIC_ACCOUNT_INDEX }}
             {{- end }}
-            {{- if .Values.validator.config.auth.CARTESI_AUTH_AWS_KMS_KEY_ID }}
+            {{- if .Values.validator.config.CARTESI_AUTH_AWS_KMS_KEY_ID }}
             - name: CARTESI_AUTH_AWS_KMS_KEY_ID
-              value: {{ .Values.validator.config.auth.CARTESI_AUTH_AWS_KMS_REGION | quote }}
+              value: {{ .Values.validator.config.CARTESI_AUTH_AWS_KMS_REGION | quote }}
             - name: CARTESI_AUTH_AWS_KMS_REGION
-              value: {{ required "A valid .Values.validator.config.auth.CARTESI_AUTH_AWS_KMS_REGION is required" .Values.validator.config.auth.CARTESI_AUTH_AWS_KMS_REGION | quote }}
+              value: {{ required "A valid .Values.validator.config.CARTESI_AUTH_AWS_KMS_REGION is required" .Values.validator.config.CARTESI_AUTH_AWS_KMS_REGION | quote }}
             {{- end }}
             {{- if .Values.validator.extraEnvVars }}
             {{- include "tplvalues.render" (dict "value" .Values.validator.extraEnvVars "context" $) | nindent 12 }}
@@ -170,7 +170,7 @@ spec:
             {{- end }}
           {{- end }}
           volumeMounts:
-            {{- if (or .Values.validator.config.auth.CARTESI_AUTH_MNEMONIC .Values.validator.config.auth.CARTESI_AUTH_MNEMONIC_FILE) }}
+            {{- if (or .Values.validator.config.CARTESI_AUTH_MNEMONIC .Values.validator.config.CARTESI_AUTH_MNEMONIC_FILE) }}
             - name: mnemonic
               mountPath: /var/run/secrets/mnemonic
               readOnly: true
@@ -179,13 +179,13 @@ spec:
             {{- include "tplvalues.render" ( dict "value" .Values.validator.extraVolumeMounts "context" $ ) | nindent 12 }}
             {{- end }}
       volumes:
-        {{- if (or .Values.validator.config.auth.CARTESI_AUTH_MNEMONIC .Values.validator.config.auth.CARTESI_AUTH_MNEMONIC_FILE) }}
+        {{- if (or .Values.validator.config.CARTESI_AUTH_MNEMONIC .Values.validator.config.CARTESI_AUTH_MNEMONIC_FILE) }}
         - name: mnemonic
           secret:
-            {{- if .Values.validator.config.auth.CARTESI_AUTH_MNEMONIC }}
+            {{- if .Values.validator.config.CARTESI_AUTH_MNEMONIC }}
             secretName: {{ include "validator.fullname" . }}-mnemonic
             {{- else }}
-            secretName: {{ .Values.validator.config.auth.CARTESI_AUTH_MNEMONIC_FILE }}
+            secretName: {{ .Values.validator.config.CARTESI_AUTH_MNEMONIC_FILE }}
             {{- end }}
         {{- end }}
         {{- if .Values.validator.extraVolumes }}
